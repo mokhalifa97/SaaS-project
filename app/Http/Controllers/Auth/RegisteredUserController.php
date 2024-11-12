@@ -47,7 +47,7 @@ class RegisteredUserController extends Controller
 
         $tenant = Tenant::create([
             'name' => $request->name,
-            'subdomain' => str_replace(' ', '', $request->name) . '.official',
+            'subdomain' => str_replace(' ', '', $request->name . '.' . config('app.url')),
             'user_id' => $user->id,
         ]);
 
